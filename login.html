@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .card {
+            margin-top: 50px;
+        }
+
+        #patientLoginForm,
+        #doctorLoginForm {
+            display: none;
+        }
+
+        .login-image {
+            width: 150px;
+            height: 150px;
+            cursor: pointer;
+        }
+
+        .login-options {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #backArrow {
+            display: none;
+            cursor: pointer;
+            color: #007bff;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Home</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="signup.html">SignUp</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        Login As
+                        <span id="backArrow">&#8592; Back</span>
+                    </div>
+                    <div class="card-body text-center">
+                        <div class="login-options">
+                            <img id="doctorImage" src="docicon.jpg" alt="Doctor" class="login-image mb-3">
+                            <button id="showDoctorLogin" class="btn btn-primary btn-lg mb-4">Doctor</button>
+
+                            <img id="patientImage" src="patienticon.jpg" alt="Patient" class="login-image mb-3">
+                            <button id="showPatientLogin" class="btn btn-info btn-lg">Patient</button>
+                        </div>
+
+                        <div id="doctorLoginForm" class="mt-4">
+                            <h2>Doctor Login</h2>
+                            <form id="doctorLoginFormForm">
+                                <div class="form-group">
+                                    <label for="doctorEmail">Email</label>
+                                    <input type="email" class="form-control" id="doctorEmail" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="doctorPassword">Password</label>
+                                    <input type="password" class="form-control" id="doctorPassword" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-block">Login</button>
+                            </form>
+                            <div id="doctorLoginMessage" class="mt-3" style="display: none;"></div>
+                        </div>
+
+                        <div id="patientLoginForm" class="mt-4">
+                            <h2>Patient Login</h2>
+                            <form id="patientLoginFormForm">
+                                <div class="form-group">
+                                    <label for="patientEmail">Email</label>
+                                    <input type="email" class="form-control" id="patientEmail" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="patientPassword">Password</label>
+                                    <input type="password" class="form-control" id="patientPassword" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-block">Login</button>
+                            </form>
+                            <div id="patientLoginMessage" class="mt-3" style="display: none;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#showDoctorLogin, #doctorImage").click(function () {
+                $("#patientLoginForm, #patientImage, #showPatientLogin").hide();
+                $("#doctorLoginForm").show();
+                $("#doctorLoginMessage").hide();
+                $("#backArrow").show();
+            });
+
+            $("#showPatientLogin, #patientImage").click(function () {
+                $("#doctorLoginForm, #doctorImage, #showDoctorLogin").hide();
+                $("#patientLoginForm").show();
+                $("#patientLoginMessage").hide();
+                $("#backArrow").show();
+            });
+
+            $("#backArrow").click(function () {
+                $("#doctorLoginForm, #patientLoginForm").hide();
+                $("#doctorImage, #showDoctorLogin, #patientImage, #showPatientLogin").show();
+                $("#backArrow").hide();
+            });
+
+            $("#doctorLoginFormForm").submit(function (event) {
+                event.preventDefault();
+
+                if ($("#doctorEmail").val() === "" || $("#doctorPassword").val() === "") {
+                    $("#doctorLoginMessage").html("<div class='alert alert-danger'>Please fill in all fields.</div>").show();
+                    return;
+                }
+
+                window.location.href = "doctor.html";
+            });
+
+            $("#patientLoginFormForm").submit(function (event) {
+                event.preventDefault();
+
+                if ($("#patientEmail").val() === "" || $("#patientPassword").val() === "") {
+                    $("#patientLoginMessage").html("<div class='alert alert-danger'>Please fill in all fields.</div>").show();
+                    return;
+                }
+
+                window.location.href = "patient.html";
+            });
+        });
+    </script>
+</body>
+
+</html>

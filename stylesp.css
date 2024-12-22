@@ -1,0 +1,94 @@
+body {
+    background: linear-gradient(to right, #74ebd5, #9face6);
+    min-height: 100vh;
+    font-family: 'Arial', sans-serif;
+}
+
+.navbar {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+    margin-top: 20px;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.02);
+}
+
+.card-header {
+    background-color: #4a69bd;
+    color: white;
+    font-weight: bold;
+}
+
+.doctor-item {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.doctor-item:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.availability {
+    font-weight: bold;
+}
+
+.available {
+    color: green;
+}
+
+.not-available {
+    color: red;
+}
+
+.btn-primary {
+    background-color: #4a69bd;
+    border-color: #4a69bd;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+    background-color: #6a89cc;
+    border-color: #6a89cc;
+}
+
+.btn-danger {
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btn-danger:hover {
+    background-color: #e55039;
+}
+
+hr {
+    border-top: 1px solid #ddd;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #333;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#doctorsList {
+    animation: fadeIn 0.8s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

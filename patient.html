@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Patient Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="stylesp.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Home</a>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h1 class="animate__animated animate__fadeInDown">Welcome, Patient!</h1>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">Select Doctor</div>
+                    <div class="card-body">
+                        <input type="text" id="doctorSearch" class="form-control mb-3" placeholder="Search by name or specialization">
+                        <button type="button" class="btn btn-primary mb-2" id="showDoctorsBtn">Show Doctors</button>
+                        <div id="doctorsList" style="display: none;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">Previously Successful Appointments</div>
+                    <div class="card-body" id="previousAppointments">
+                        <p>No previous appointments found.</p>
+                    </div>
+                </div>
+                <div class="card mt-4">
+                    <div class="card-header">Appointment History</div>
+                    <div class="card-body" id="cancelAppointments">
+                        <p>No booked appointments to cancel.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="appointmentModal" tabindex="-1" role="dialog" aria-labelledby="appointmentModalLabel" aria-hidden="true"></div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="scriptp.js"></script>
+</body>
+
+</html>
