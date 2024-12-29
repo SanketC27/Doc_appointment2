@@ -1,0 +1,12 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.card {
+    margin-top: 50px;
+}
+
+#patientSignupForm,
+#doctorSignupForm {
+    display: none; /* Initially hide both forms */
+}

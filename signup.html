@@ -4,20 +4,7 @@
 <head>
     <title>Signup</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        body {
-            background-color: #f8f9fa;
-        }
-
-        .card {
-            margin-top: 50px;
-        }
-
-        #patientSignupForm,
-        #doctorSignupForm {
-            display: none; /* Initially hide both forms */
-        }
-    </style>
+    <link rel="stylesheet" href="CSS/signup.css">
 </head>
 
 <body>
@@ -43,10 +30,19 @@
                 <div class="card">
                     <div class="card-header">SignUp As</div>
                     <div class="card-body text-center">
-                        <button id="showDoctorSignup" class="btn btn-primary btn-lg mr-3">Doctor</button>
-                        <button id="showPatientSignup" class="btn btn-info btn-lg">Patient</button>
+                        <!-- Doctor Image and Button -->
+                        <div class="mb-4">
+                            <img src="Images/docicon.jpg" alt="Doctor" class="img-fluid" style="width: 100px; height: 100px; cursor: pointer;" id="doctorImage">
+                            <button id="showDoctorSignup" class="btn btn-primary btn-lg mt-3 d-none">Doctor</button>
+                        </div>
+                        <!-- Patient Image and Button -->
+                        <div>
+                            <img src="Images/patienticon.jpg" alt="Patient" class="img-fluid" style="width: 100px; height: 100px; cursor: pointer;" id="patientImage">
+                            <button id="showPatientSignup" class="btn btn-info btn-lg mt-3 d-none">Patient</button>
+                        </div>
 
-                        <div id="doctorSignupForm" class="mt-4">
+                        <!-- Doctor Signup Form (Initially Hidden) -->
+                        <div id="doctorSignupForm" class="mt-4" style="display: none;">
                             <h2>Doctor SignUp</h2>
                             <form id="doctorForm">
                                 <div class="form-group">
@@ -79,7 +75,8 @@
                             <div id="doctorSignupMessage" class="mt-3" style="display: none;"></div>
                         </div>
 
-                        <div id="patientSignupForm" class="mt-4">
+                        <!-- Patient Signup Form (Initially Hidden) -->
+                        <div id="patientSignupForm" class="mt-4" style="display: none;">
                             <h2>Patient Signup</h2>
                             <form id="patientForm">
                                 <div class="form-group">
@@ -111,31 +108,9 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $("#showDoctorSignup").click(function () {
-                $("#patientSignupForm").hide();
-                $("#doctorSignupForm").show();
-            });
+    <script src="JS/signup.js"></script>
 
-            $("#showPatientSignup").click(function () {
-                $("#doctorSignupForm").hide();
-                $("#patientSignupForm").show();
-            });
-
-            $("#doctorForm").submit(function (event) {
-                event.preventDefault();
-                // Doctor form submission handling (validation and AJAX)
-                $("#doctorSignupMessage").html("<div class='alert alert-success'>Doctor Signup successful! (Simulated)</div>").show();
-            });
-
-            $("#patientForm").submit(function (event) {
-                event.preventDefault();
-                // Patient form submission handling (validation and AJAX)
-                $("#patientSignupMessage").html("<div class='alert alert-success'>Patient Signup successful! (Simulated)</div>").show();
-            });
-        });
-    </script>
+    
 </body>
 
 </html>

@@ -1,0 +1,85 @@
+body {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar {
+    background-color: #007bff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-brand {
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.carousel-item img {
+    max-height: 500px;
+    object-fit: cover;
+    width: 100%;
+}
+
+#carouselExampleIndicators {
+    margin-top: 100px;
+}
+
+.info-section {
+    padding: 80px 30px;
+    background: #ffffff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    margin-top: -50px;
+    z-index: 2;
+    position: relative;
+    text-align: center;
+}
+
+.info-section h2 {
+    color: #007bff;
+    font-weight: 600;
+}
+
+.info-section p {
+    color: #495057;
+    font-size: 1.2rem;
+    line-height: 1.8;
+}
+
+.feature-card {
+    border: none;
+    background: #ffffff;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.feature-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.feature-card .card-body {
+    padding: 30px;
+}
+
+.feature-card .card-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #007bff;
+}
+
+.feature-card .card-text {
+    font-size: 1rem;
+    color: #495057;
+}
+
+.footer {
+    background: #007bff;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 1rem;
+}

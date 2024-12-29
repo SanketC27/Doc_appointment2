@@ -4,39 +4,7 @@
 <head>
     <title>Login</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        body {
-            background-color: #f8f9fa;
-        }
-
-        .card {
-            margin-top: 50px;
-        }
-
-        #patientLoginForm,
-        #doctorLoginForm {
-            display: none;
-        }
-
-        .login-image {
-            width: 150px;
-            height: 150px;
-            cursor: pointer;
-        }
-
-        .login-options {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        #backArrow {
-            display: none;
-            cursor: pointer;
-            color: #007bff;
-            font-size: 18px;
-        }
-    </style>
+    <link rel="stylesheet" href="CSS/login.css">
 </head>
 
 <body>
@@ -66,10 +34,10 @@
                     </div>
                     <div class="card-body text-center">
                         <div class="login-options">
-                            <img id="doctorImage" src="docicon.jpg" alt="Doctor" class="login-image mb-3">
+                            <img id="doctorImage" src="Images/docicon.jpg" alt="Doctor" class="login-image mb-3">
                             <button id="showDoctorLogin" class="btn btn-primary btn-lg mb-4">Doctor</button>
 
-                            <img id="patientImage" src="patienticon.jpg" alt="Patient" class="login-image mb-3">
+                            <img id="patientImage" src="Images/patienticon.jpg" alt="Patient" class="login-image mb-3">
                             <button id="showPatientLogin" class="btn btn-info btn-lg">Patient</button>
                         </div>
 
@@ -112,51 +80,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $("#showDoctorLogin, #doctorImage").click(function () {
-                $("#patientLoginForm, #patientImage, #showPatientLogin").hide();
-                $("#doctorLoginForm").show();
-                $("#doctorLoginMessage").hide();
-                $("#backArrow").show();
-            });
-
-            $("#showPatientLogin, #patientImage").click(function () {
-                $("#doctorLoginForm, #doctorImage, #showDoctorLogin").hide();
-                $("#patientLoginForm").show();
-                $("#patientLoginMessage").hide();
-                $("#backArrow").show();
-            });
-
-            $("#backArrow").click(function () {
-                $("#doctorLoginForm, #patientLoginForm").hide();
-                $("#doctorImage, #showDoctorLogin, #patientImage, #showPatientLogin").show();
-                $("#backArrow").hide();
-            });
-
-            $("#doctorLoginFormForm").submit(function (event) {
-                event.preventDefault();
-
-                if ($("#doctorEmail").val() === "" || $("#doctorPassword").val() === "") {
-                    $("#doctorLoginMessage").html("<div class='alert alert-danger'>Please fill in all fields.</div>").show();
-                    return;
-                }
-
-                window.location.href = "doctor.html";
-            });
-
-            $("#patientLoginFormForm").submit(function (event) {
-                event.preventDefault();
-
-                if ($("#patientEmail").val() === "" || $("#patientPassword").val() === "") {
-                    $("#patientLoginMessage").html("<div class='alert alert-danger'>Please fill in all fields.</div>").show();
-                    return;
-                }
-
-                window.location.href = "patient.html";
-            });
-        });
-    </script>
+    <script src="JS/login.js"></script>
 </body>
 
 </html>
