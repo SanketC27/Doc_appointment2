@@ -1,12 +1,135 @@
 body {
-    background-color: #f8f9fa;
+    background: linear-gradient(135deg, #121212, #1e1e1e);
+    color: #f8f9fa;
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar-logo {
+    height: 100px;
+    width: auto;
+    margin: 10px 15px;
+    padding: 5px;
+}
+
+.navbar {
+    background: linear-gradient(135deg, #1c1c1c, #1c1b1b);
+    border-bottom: 2px solid #010101;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+    height: 90px;
+    display: flex;
+    align-items: center;
+    transition: background 0.3s ease;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: #fff;
+    letter-spacing: 2px;
+    transition: color 0.3s ease;
+}
+
+.navbar-brand:hover {
+    color: #007bff;
+}
+
+.nav-link {
+    color: #ccc;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 0 10px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #007bff;
+    transform: translateY(-3px);
+}
+
+.navbar-toggler {
+    border: none;
+    background-color: #007bff;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.navbar-toggler:hover {
+    background-color: #0056b3;
 }
 
 .card {
-    margin-top: 50px;
+    margin-top: 100px;
+    background-color: #1f1f1f;
+    border-radius: 10px;
+    border: 1px solid #444;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
 }
 
-#patientSignupForm,
-#doctorSignupForm {
-    display: none; /* Initially hide both forms */
+.card-header {
+    background-color: #212121;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.card-body {
+    text-align: center;
+}
+
+#doctorImage, #patientImage {
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+#doctorImage:hover, #patientImage:hover {
+    transform: scale(1.1);
+}
+
+#showDoctorSignup, #showPatientSignup {
+    margin-top: 20px;
+}
+
+#doctorSignupForm, #patientSignupForm {
+    display: none;
+}
+
+.form-control {
+    border-radius: 5px;
+    background-color: #2b2b2b;
+    border: 1px solid #444;
+    color: #f8f9fa;
+}
+
+.form-control:focus {
+    border-color: #007bff;
+    background-color: #2a2a2a;
+}
+
+button {
+    background-color: #007bff;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+footer {
+    background-color: #121212;
+    color: #bbb;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 1rem;
 }

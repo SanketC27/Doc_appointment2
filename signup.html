@@ -1,16 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>Signup</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="CSS/signup.css">
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">Home</a>
+            <a class="navbar-brand" href="index.html">
+                <img src="Images/logo.png" alt="CareSync Logo" class="navbar-logo">
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -18,32 +23,34 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="login.html">Login</a>
+                        <a class="nav-link" href="login.html">Log In</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-    <div class="container">
+
+    <!-- Signup Section -->
+    <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">SignUp As</div>
+                    <div class="card-header text-center text-white bg-dark">
+                        Sign Up As
+                    </div>
                     <div class="card-body text-center">
-                        <!-- Doctor Image and Button -->
                         <div class="mb-4">
-                            <img src="Images/docicon.jpg" alt="Doctor" class="img-fluid" style="width: 100px; height: 100px; cursor: pointer;" id="doctorImage">
+                            <img src="Images/docicon.png" alt="Doctor" class="img-fluid" id="doctorImage">
                             <button id="showDoctorSignup" class="btn btn-primary btn-lg mt-3 d-none">Doctor</button>
                         </div>
-                        <!-- Patient Image and Button -->
                         <div>
-                            <img src="Images/patienticon.jpg" alt="Patient" class="img-fluid" style="width: 100px; height: 100px; cursor: pointer;" id="patientImage">
+                            <img src="Images/patienticon.png" alt="Patient" class="img-fluid" id="patientImage">
                             <button id="showPatientSignup" class="btn btn-info btn-lg mt-3 d-none">Patient</button>
                         </div>
 
-                        <!-- Doctor Signup Form (Initially Hidden) -->
+                        <!-- Doctor Signup Form -->
                         <div id="doctorSignupForm" class="mt-4" style="display: none;">
-                            <h2>Doctor SignUp</h2>
+                            <h2 class="text-primary">Doctor Sign Up</h2>
                             <form id="doctorForm">
                                 <div class="form-group">
                                     <label for="doctorName">Name</label>
@@ -70,14 +77,14 @@
                                     <label for="dob">Date Of Birth</label>
                                     <input type="date" class="form-control" id="dob" required>
                                 </div>
-                                <button type="submit" class="btn btn-primary btn-block">Signup</button>
+                                <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
                             </form>
                             <div id="doctorSignupMessage" class="mt-3" style="display: none;"></div>
                         </div>
 
-                        <!-- Patient Signup Form (Initially Hidden) -->
+                        <!-- Patient Signup Form -->
                         <div id="patientSignupForm" class="mt-4" style="display: none;">
-                            <h2>Patient Signup</h2>
+                            <h2 class="text-primary">Patient Sign Up</h2>
                             <form id="patientForm">
                                 <div class="form-group">
                                     <label for="patientName">Name</label>
@@ -95,22 +102,20 @@
                                     <label for="medicalHistory">Previous Medical History</label>
                                     <textarea class="form-control" id="medicalHistory" rows="3"></textarea>
                                 </div>
-                                <button type="submit" class="btn btn-primary btn-block">Signup</button>
+                                <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
                             </form>
                             <div id="patientSignupMessage" class="mt-3" style="display: none;"></div>
                         </div>
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="JS/signup.js"></script>
-
-    
 </body>
 
 </html>

@@ -1,20 +1,89 @@
 body {
-    background-color: #f8f9fa;
+    background: linear-gradient(135deg, #121212, #1e1e1e);
+    color: #f8f9fa;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar {
+    background: linear-gradient(135deg, #1c1c1c, #1c1b1b);
+    border-bottom: 2px solid #010101;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+    height: 90px;
+    display: flex;
+    align-items: center;
+    transition: background 0.3s ease;
+}
+
+.navbar-logo {
+    height: 80px; /* Adjusted logo size */
+    width: auto;
+    margin: 10px 15px;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: #fff;
+    letter-spacing: 2px;
+    transition: color 0.3s ease;
+}
+
+.navbar-brand:hover {
+    color: #007bff;
+}
+
+.nav-link {
+    color: #ccc;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 0 10px;
+    transition: color 0.3s ease, transform 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: #007bff;
+    transform: translateY(-3px);
+}
+
+.nav-link::after {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 0;
+    background: #007bff;
+    transition: width 0.3s ease;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+    width: 50%;
 }
 
 .card {
-    margin-top: 50px;
+    background: #1f1f1f;
+    border: 1px solid #444;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
 }
 
-#patientLoginForm,
-#doctorLoginForm {
-    display: none;
+.card-header {
+    background: #2c2c2c;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.5rem;
+    border-bottom: 2px solid #444;
 }
 
-.login-image {
-    width: 150px;
-    height: 150px;
-    cursor: pointer;
+.card-body {
+    background: #121212;
 }
 
 .login-options {
@@ -23,9 +92,51 @@ body {
     align-items: center;
 }
 
-#backArrow {
+.login-image {
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+button {
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 12px 30px;
+    border-radius: 25px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #007bff;
+    transform: translateY(-3px);
+}
+
+#doctorLoginForm, #patientLoginForm {
     display: none;
+}
+
+#backArrow {
     cursor: pointer;
     color: #007bff;
     font-size: 18px;
+}
+
+footer {
+    background: #121212;
+    color: #bbb;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 1rem;
+    border-top: 1px solid #444;
+}
+
+footer a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }
