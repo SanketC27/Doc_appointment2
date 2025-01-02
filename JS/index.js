@@ -1,3 +1,3 @@
 $('.carousel').carousel({
-    interval: 5000 // Change every 5 seconds
+    interval: 3000 // Change every 5 seconds
 })

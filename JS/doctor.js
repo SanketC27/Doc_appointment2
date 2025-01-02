@@ -1,26 +1,57 @@
 $(document).ready(function () {
-    $("#updateAvailability").click(function () {
-        var status = $("#availabilityStatus").val();
-        $("#availabilityMessage").html("<div class='alert alert-success'>Availability updated to " + status + "! (Simulated)</div>").show();
-        //AJAX request to backend
+    // Simulated Appointments Data
+    const appointments = [
+        { id: 1, patient: "john.doe@example.com", date: "2024-04-01", time: "10:00 AM", status: "Pending" },
+        { id: 2, patient: "jane.doe@example.com", date: "2024-04-02", time: "11:30 AM", status: "Pending" },
+    ];
+
+    // Populate Appointments Table
+    appointments.forEach(function (appointment) {
+        $("#appointmentsTable").append(
+            `<tr>
+                <td>${appointment.id}</td>
+                <td>${appointment.patient}</td>
+                <td>${appointment.date}</td>
+                <td>${appointment.time}</td>
+                <td id="status-${appointment.id}">${appointment.status}</td>
+                <td>
+                    <button class="btn btn-success btn-sm" onclick="approveAppointment(${appointment.id})">Approve</button>
+                    <button class="btn btn-danger btn-sm" onclick="cancelAppointment(${appointment.id})">Cancel</button>
+                </td>
+            </tr>`
+        );
     });
+
+    // Update Availability
+    $("#updateAvailability").click(function () {
+        const status = $("#availabilityStatus").val();
+        $("#availabilityMessage").html(`<div class='alert alert-success'>Availability updated to <strong>${status}</strong>!</div>`).show();
+    });
+
+    // View Medical History
     $("#viewMedicalHistory").click(function () {
-        var patientEmail = $("#patientEmailForHistory").val();
-        if (patientEmail == "") {
-            $("#medicalHistoryDisplay").html("<div class='alert alert-danger'>Please enter patient email</div>").show();
+        const patientEmail = $("#patientEmailForHistory").val();
+        if (!patientEmail) {
+            $("#medicalHistoryDisplay")
+                .html("<div class='alert alert-danger'>Please enter a valid patient email.</div>")
+                .show();
             return;
         }
-        $("#medicalHistoryDisplay").html("<p>Medical history for " + patientEmail + " will be displayed here. (Simulated)</p>").show();
-        //AJAX request to backend
+        const historyData = `
+            <h5>Medical History for ${patientEmail}</h5>
+            <ul>
+                <li>2023-06-15: Annual Checkup - All clear</li>
+                <li>2023-09-10: Flu Symptoms - Prescribed medication</li>
+            </ul>`;
+        $("#medicalHistoryDisplay").html(historyData).show();
     });
-    var appointments = [
-        { patient: "patient1@example.com", date: "2024-04-01", time: "10:00 AM" },
-        { patient: "patient2@example.com", date: "2024-04-02", time: "11:30 AM" },
-    ];
-    if (appointments.length > 0) {
-        $("#scheduledAppointments").html("");
-        appointments.forEach(function (appointment) {
-            $("#scheduledAppointments").append("<p>Patient: " + appointment.patient + ", Date: " + appointment.date + ", Time: " + appointment.time + "</p>");
-        });
-    }
 });
+
+// Approve and Cancel Appointment
+function approveAppointment(id) {
+    $(`#status-${id}`).text("Approved").css("color", "green");
+}
+
+function cancelAppointment(id) {
+    $(`#status-${id}`).text("Cancelled").css("color", "red");
+}

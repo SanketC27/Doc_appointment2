@@ -2,14 +2,12 @@ $(document).ready(function () {
     var doctors = [
         { name: "Dr. John Smith", email: "john.smith@hospital.com", specialization: "Cardiology", available: true },
         { name: "Dr. Jane Doe", email: "jane.doe@hospital.com", specialization: "Dermatology", available: false },
-        { name: "Dr. Michael Lee", email: "michael.lee@hospital.com", specialization: "Neurology", available: true },
-        { name: "Dr. Sarah Garcia", email: "sarah.garcia@hospital.com", specialization: "Pediatrics", available: false },
-        { name: "Dr. David Kim", email: "david.kim@hospital.com", specialization: "Orthopedics", available: true }
+        { name: "Dr. Michael Lee", email: "michael.lee@hospital.com", specialization: "Neurology", available: true }
     ];
 
     var appointments = [
-        { id: 1, date: "2024-03-10", time: "10:00 AM", treatmentType: "Consultation" },
-        { id: 2, date: "2024-02-15", time: "11:30 AM", treatmentType: "Follow-up" }
+        { id: 1, date: "2024-03-10", time: "10:00 AM", treatmentType: "Consultation", status: "Pending" },
+        { id: 2, date: "2024-02-15", time: "11:30 AM", treatmentType: "Follow-up", status: "Approved" }
     ];
 
     function displayDoctors(doctorsToDisplay) {
@@ -25,7 +23,6 @@ $(document).ready(function () {
                     <div class='doctor-item'>
                         <p>${doctor.name} - ${doctor.specialization}</p>
                         <p><span class='availability ${availabilityClass}'>${availabilityText}</span></p>
-                        <p><a href='mailto:${doctor.email}'>Contact Dr. ${doctor.name}</a></p>
                         <button type='button' class='btn btn-primary btn-sm book-appointment-btn' data-toggle='modal' data-target='#appointmentModal' data-doctor-name='${doctor.name}' ${doctor.available ? "" : "disabled"}>Book Appointment</button>
                     </div>`;
                 $("#doctorsList").append(doctorInfo);
@@ -44,6 +41,7 @@ $(document).ready(function () {
                     <div>
                         <p>Appointment ID: ${appointment.id}</p>
                         <p>Date: ${appointment.date}<br>Time: ${appointment.time}<br>Type: ${appointment.treatmentType}</p>
+                        <p>Status: <span>${appointment.status}</span></p>
                         <button class='btn btn-danger btn-sm cancel-appointment-btn' data-id='${appointment.id}'>Cancel</button>
                         <hr>
                     </div>
@@ -52,33 +50,22 @@ $(document).ready(function () {
         }
     }
 
-    $("#showDoctorsBtn").click(function () {
-        if ($("#doctorsList").is(":visible")) {
-            $("#doctorsList").hide();
-            $(this).text("Show Doctors");
-        } else {
-            displayDoctors(doctors);
-            $(this).text("Hide Doctors");
-        }
-    });
-
-    $("#doctorSearch").on("keyup", function () {
-        var searchTerm = $(this).val().toLowerCase();
-        var filteredDoctors = doctors.filter(function (doctor) {
-            return doctor.name.toLowerCase().includes(searchTerm) || doctor.specialization.toLowerCase().includes(searchTerm);
+    $(document).on("click", ".cancel-appointment-btn", function () {
+        var appointmentId = $(this).data("id");
+        appointments = appointments.filter(function (appointment) {
+            return appointment.id !== appointmentId;
         });
-        displayDoctors(filteredDoctors);
+        displayCancelAppointments();
+        alert("Appointment canceled successfully!");
     });
 
-    $('#appointmentModal').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget);
-        var doctorName = button.data('doctor-name');
-        var modal = $(this);
-        modal.html(`
+    $(document).on('show.bs.modal', '#appointmentModal', function (event) {
+        var doctorName = $(event.relatedTarget).data('doctor-name');
+        var modalContent = `
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="appointmentModalLabel">Book Appointment with <span id="modalDoctorName">${doctorName}</span></h5>
+                    <h5 class="modal-title">Book Appointment with Dr. ${doctorName}</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -98,31 +85,27 @@ $(document).ready(function () {
                     </form>
                 </div>
             </div>
-        </div>`);
-        $("#bookingMessage").hide();
-        $("#bookAppointmentForm")[0].reset();
+        </div>`;
+        $(this).html(modalContent);
     });
 
-    $(document).on("click", ".cancel-appointment-btn", function () {
-        var appointmentId = $(this).data("id");
-        appointments = appointments.filter(function (appointment) {
-            return appointment.id !== appointmentId;
-        });
-        displayCancelAppointments();
-        alert("Appointment canceled successfully!");
+    $("#showDoctorsBtn").click(function () {
+        if ($("#doctorsList").is(":visible")) {
+            $("#doctorsList").hide();
+            $(this).text("Show Doctors");
+        } else {
+            displayDoctors(doctors);
+            $(this).text("Hide Doctors");
+        }
     });
 
-    if (appointments.length > 0) {
-        $("#previousAppointments").html("");
-        appointments.forEach(function (appointment) {
-            $("#previousAppointments").append(
-                "<p>Date: " + appointment.date +
-                "<br>Time: " + appointment.time +
-                "<br>Type: " + appointment.treatmentType +
-                "</p><hr>"
-            );
+    $("#doctorSearch").on("keyup", function () {
+        var searchTerm = $(this).val().toLowerCase();
+        var filteredDoctors = doctors.filter(function (doctor) {
+            return doctor.name.toLowerCase().includes(searchTerm) || doctor.specialization.toLowerCase().includes(searchTerm);
         });
-    }
+        displayDoctors(filteredDoctors);
+    });
 
     displayCancelAppointments();
 });

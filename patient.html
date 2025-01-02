@@ -1,54 +1,92 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Patient Dashboard</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="CSS/patient.css">
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="index.html">Home</a>
+            <a class="navbar-brand" href="#">
+                <img src="Images/logo.png" alt="CareSync Logo" class="navbar-logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html" id="logout">Log Out</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 
-    <div class="container mt-4">
-        <h1 class="animate__animated animate__fadeInDown">Welcome, Patient!</h1>
-
+    <!-- Dashboard -->
+    <div class="container mt-5 pt-5">
+        <h1 class="text-center mb-4">Welcome, Patient!</h1>
         <div class="row">
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header">Select Doctor</div>
+            <!-- Select Doctor -->
+            <div class="col-md-4">
+                <div class="card feature-card">
+                    <div class="card-header text-primary">Select Doctor</div>
                     <div class="card-body">
-                        <input type="text" id="doctorSearch" class="form-control mb-3" placeholder="Search by name or specialization">
+                        <input type="text" id="doctorSearch" class="form-control mb-3"
+                            placeholder="Search by name or specialization">
                         <button type="button" class="btn btn-primary mb-2" id="showDoctorsBtn">Show Doctors</button>
                         <div id="doctorsList" style="display: none;"></div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header">Previously Successful Appointments</div>
-                    <div class="card-body" id="previousAppointments">
-                        <p>No previous appointments found.</p>
-                    </div>
+
+            <!-- Appointment History -->
+            <div class="col-md-4">
+                <div class="card feature-card">
+                    <div class="card-header text-primary">Appointment History</div>
+                    <div class="card-body" id="cancelAppointments"></div>
                 </div>
-                <div class="card mt-4">
-                    <div class="card-header">Appointment History</div>
-                    <div class="card-body" id="cancelAppointments">
-                        <p>No booked appointments to cancel.</p>
+            </div>
+
+            <!-- Previous Successful Appointments -->
+            <div class="col-md-4">
+                <div class="card feature-card">
+                    <div class="card-header text-primary">Previous Successful Appointments</div>
+                    <div class="card-body" id="previousAppointments">
+                        <p>Date: 2023-12-20<br>Time: 10:30 AM<br>Type: Consultation<br>Status: Approved</p>
+                        <hr>
+                        <p>Date: 2023-12-18<br>Time: 2:00 PM<br>Type: Follow-up<br>Status: Approved</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="modal fade" id="appointmentModal" tabindex="-1" role="dialog" aria-labelledby="appointmentModalLabel" aria-hidden="true"></div>
+    <!-- Footer -->
+    <footer class="footer mt-5">
+        <div class="container">
+            <p>© 2024 CareSync Doc Appointment System. All rights reserved.</p>
+        </div>
+    </footer>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <!-- Modal -->
+    <div class="modal fade" id="appointmentModal" tabindex="-1" role="dialog" aria-labelledby="appointmentModalLabel"
+        aria-hidden="true"></div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="JS/patient.js"></script>

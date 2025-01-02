@@ -1,0 +1,73 @@
+/* Global Styles */
+body {
+    background: linear-gradient(135deg, #121212, #1e1e1e);
+    color: #f8f9fa;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding-top: 90px;
+}
+
+/* Navbar */
+.navbar {
+    background: linear-gradient(135deg, #1c1c1c, #1c1b1b);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+    height: 90px;
+}
+.navbar-logo {
+    height: 100px; /* Set logo height to 100px */
+    width: auto; /* Maintain aspect ratio */
+    margin: 10px 15px; /* Add margin (top-bottom: 10px, left-right: 15px) */
+    padding: 5px; /* Add padding for inner spacing */
+}
+
+
+/* Services Section */
+.services-section {
+    text-align: center;
+}
+
+.services-section h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #da4f4f;
+    margin-bottom: 15px;
+}
+
+.services-section p {
+    font-size: 1.2rem;
+    color: #ddd;
+    margin-bottom: 40px;
+}
+
+/* Service Cards */
+.service-card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card img {
+    height: 200px;
+    object-fit: cover;
+}
+
+.service-card .card-title {
+    font-size: 1.5rem;
+    color: #1f2021;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.service-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+}
+
+/* Footer */
+.footer {
+    background: #121212;
+    color: #bbb;
+    padding: 20px 0;
+    text-align: center;
+}

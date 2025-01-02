@@ -1,3 +1,4 @@
+/* Body and background */
 body {
     background: linear-gradient(135deg, #121212, #1e1e1e);
     color: #f8f9fa;
@@ -7,6 +8,7 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
+/* Navbar */
 .navbar {
     background: linear-gradient(135deg, #1c1c1c, #1c1b1b);
     border-bottom: 2px solid #010101;
@@ -18,7 +20,7 @@ body {
 }
 
 .navbar-logo {
-    height: 80px; /* Adjusted logo size */
+    height: 80px;
     width: auto;
     margin: 10px 15px;
 }
@@ -66,6 +68,7 @@ body {
     width: 50%;
 }
 
+/* Card and Form Styling */
 .card {
     background: #1f1f1f;
     border: 1px solid #444;
@@ -86,6 +89,7 @@ body {
     background: #121212;
 }
 
+/* Login Images and Hover Effect */
 .login-options {
     display: flex;
     flex-direction: column;
@@ -99,6 +103,30 @@ body {
     margin-bottom: 20px;
 }
 
+.login-image:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+/* Back Button Styling */
+#backArrow {
+    display: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 25px;
+    margin-top: 20px;
+    cursor: pointer;
+    background-color: #6c757d;
+    color: white;
+}
+
+#backArrow:hover {
+    background-color: #007bff;
+    transform: translateY(-3px);
+}
+
+/* Button Styling */
 button {
     font-size: 1.1rem;
     font-weight: 600;
@@ -113,16 +141,12 @@ button:hover {
     transform: translateY(-3px);
 }
 
+/* Hidden Forms */
 #doctorLoginForm, #patientLoginForm {
     display: none;
 }
 
-#backArrow {
-    cursor: pointer;
-    color: #007bff;
-    font-size: 18px;
-}
-
+/* Footer */
 footer {
     background: #121212;
     color: #bbb;
